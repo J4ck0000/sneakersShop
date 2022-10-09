@@ -1,0 +1,55 @@
+@use 'variables' as v;
+@use 'mixins';
+
+.gallery{
+  &__image-container{
+    background-image: url('../../images/image-product-1.jpg');
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-position-y:-35px ;
+    
+    @media (min-width:1115px) {
+      cursor: pointer;
+    }
+
+
+    
+  }
+
+  &__previous{
+    @include mixins.image-btn (170px, 15px,false);
+  }
+
+  &__next{
+    @include mixins.image-btn (170px, 320px,false);
+  }
+
+  &__thumbnails{
+    display: none;
+    @media(min-width: 1115px){
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__thumbnail{
+    width: 90px;
+    border-radius: 16px;
+
+    &:hover{
+      cursor: pointer;
+      border: 2px solid v.$Orange;
+    }
+  }
+
+  @media (min-width:1115px) {
+    width: 446px;
+    &__image-container{
+      height: 446px;
+      border-radius: 16px;
+      margin-bottom: 32px;
+      background-position-y:0;
+    }
+  }
+}
